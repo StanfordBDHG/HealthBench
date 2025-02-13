@@ -1,0 +1,151 @@
+#
+# This source file is part of the StanfordBDHG Template Application project
+#
+# SPDX-FileCopyrightText: 2023 Stanford University
+#
+# SPDX-License-Identifier: MIT
+#
+
+default_platform(:ios)
+
+platform :ios do
+  before_all do
+    ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "5"
+    ENV["FASTLANE_XCODEBUILD_SETTINGS_RETRIES"] = "6"
+  end
+
+  desc "Build and test"
+  lane :test do
+    test_iphone
+    test_ipad
+    test_apple_watch
+    test_apple_tv
+    test_vision_pro
+    test_macos
+  end
+
+  desc "Build and test for iPhone"
+  lane :test_iphone do
+    private_test(devices: ["iPhone 15 Pro"], result: "iphone")
+  end
+
+  desc "Build and test for iPad"
+  lane :test_ipad do
+    private_test(devices: ["iPad mini (6th generation)"], result: "ipad")
+  end
+
+  desc "Build and test for Apple Watch"
+  lane :test_apple_watch do
+    private_test(devices: ["Apple Watch Series 8 (45mm)"], result: "apple_watch")
+  end
+
+  desc "Build and test for Apple TV"
+  lane :test_apple_tv do
+    private_test(devices: ["Apple TV 4K (3rd generation)"], result: "apple_tv")
+  end
+
+  desc "Build and test for Vision Pro"
+  lane :test_vision_pro do
+    private_test(devices: ["Apple Vision Pro"], result: "vision_pro")
+  end
+
+  desc "Build and test for macOS"
+  lane :test_macos do
+    private_test(devices: ["My Mac"], result: "macos", destination: "platform=macOS")
+  end
+
+  desc "Internal build and test lane"
+  private_lane :private_test do |options|
+    run_tests(
+      skip_build: true,
+      derived_data_path: ".derivedData",
+      xcargs: [
+        "-skipPackagePluginValidation",
+        "-skipMacroValidation"
+      ],
+      code_coverage: true,
+      devices: options[:devices],
+      force_quit_simulator: true,
+      reset_simulator: true,
+      prelaunch_simulator: false,
+      concurrent_workers: 1,
+      max_concurrent_simulators: 1,
+      destination: options[:destination],
+      result_bundle: true,
+      output_directory: ".",
+      result_bundle_path: "./#{options[:result]}.xcresult"
+    )
+  end
+
+  desc "CodeQL"
+  lane :codeql do
+    build_app(
+      skip_archive: true,
+      skip_codesigning: true,
+      derived_data_path: ".derivedData",
+      xcargs: [
+        "-skipPackagePluginValidation",
+        "-skipMacroValidation"
+      ]
+    )
+  end
+
+  desc "Build app"
+  lane :build do
+    build_app(
+      derived_data_path: ".derivedData",
+      xcargs: [
+        "-skipPackagePluginValidation",
+        "-skipMacroValidation"
+      ],
+      destination: "generic/platform=iOS",
+      output_directory: ".build",
+      archive_path: ".build/TemplateApplication.xcarchive",
+    )
+    # This is an unfortunate workaround for a bug in fastlane: https://github.com/fastlane/fastlane/pull/21319
+    Dir.chdir("..") do
+      sh(
+        "
+        xcodebuild \
+          -exportArchive \
+          -exportOptionsPlist ./fastlane/ExportOptions.plist \
+          -archivePath ./.build/TemplateApplication.xcarchive \
+          -exportPath ./.build
+        "
+      )
+    end
+  end
+
+  desc "Sign in to the App Store Connect API"
+  lane :signin do
+    app_store_connect_api_key(
+      key_id: ENV["APP_STORE_CONNECT_API_KEY_ID"],
+      issuer_id: ENV["APP_STORE_CONNECT_ISSUER_ID"],
+      key_content: ENV["APP_STORE_CONNECT_API_KEY_BASE64"],
+      is_key_content_base64: true
+    )
+  end
+
+  desc "Publish a beta release to internal TestFlight testers"
+  lane :beta do
+    signin
+    increment_build_number(
+      {
+        build_number: latest_testflight_build_number + 1
+      }
+    )
+    build
+    commit = last_git_commit
+    upload_to_testflight(
+      ipa: "./.build/TemplateApplication.ipa",
+      distribute_external: true,
+      groups: [
+        "External Testers"
+      ],
+      submit_beta_review: true,
+      notify_external_testers: true,
+      expire_previous_builds: true,
+      changelog: commit[:message]
+    )
+  end
+end

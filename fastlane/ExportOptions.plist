@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>method</key>
+	<string>app-store</string>
+	<key>provisioningProfiles</key>
+	<dict>
+		<key>edu.stanford.templateapplication</key>
+		<string>TemplateApplication</string>
+		<key>edu.stanford.templateapplication.watchapp</key>
+		<string>TemplateWatchApplication</string>
+	</dict>
+	<key>signingCertificate</key>
+	<string>Apple Distribution: Paul Schmiedmayer (637867499T)</string>
+	<key>signingStyle</key>
+	<string>manual</string>
+</dict>
+</plist>
