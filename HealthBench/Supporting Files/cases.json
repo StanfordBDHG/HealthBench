@@ -1,0 +1,822 @@
+[
+    {
+        "case_id": "1",
+        "case_title": "Management of breast cancer ",
+        "case_vignette": "A 58-year-old female visits the outpatient clinic with concerns about a persistent lump in her left breast. She first noticed the lump and dimpling of the surrounding skin while showering about 8 weeks ago. Over the past month, she has also observed a subtle retraction of the nipple with redness in the nipple area and blood-tinged discharge, but no pain, as well as a small lump in her left armpit. The patient has never given birth. She admits to skipping her scheduled mammogram for the past two years due to anxiety. Upon further history, she reveals that she went through menopause at age 51 and has been on hormone replacement therapy for the past 5 years to manage her post-menopausal symptoms. She has not experienced any weight loss, fatigue or abdominal or bone pain. Her sister was diagnosed with breast cancer at age 31, and her paternal grandmother had a history of uterine cancer. She has never smoked or consumed alcohol excessively.",
+        "questions": [
+            {
+                "case_id": "1",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history, what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "1",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "1",
+                "question_id": "3",
+                "question_str": "Detail all the immediate diagnostic procedures or tests you would perform to confirm your diagnosis. Provide details about how each test should be performed and why. "
+            },
+            {
+                "case_id": "1",
+                "question_id": "4",
+                "question_str": "Assume the diagnosis of an invasive breast cancer is confirmed with a clinical stage cT2, cN+, M0. The patient is a BRCA2 carrier, and ER-positive and HER2-negative. What are the immediate, therapeutic strategies to manage the disease? For each therapy, explain how and when it should be performed and explain alternative strategies, when the first line therapy is not indicated. "
+            },
+            {
+                "case_id": "1",
+                "question_id": "5",
+                "question_str": "During surgical axillary staging, the patient has 4 positive axillary nodes. Surgical margins are negative. What treatment should be performed?"
+            },
+            {
+                "case_id": "1",
+                "question_id": "6",
+                "question_str": "What management is recommended for surveillance and follow-up in a patient with invasive breast cancer according to current clinical guidelines?"
+            },
+            {
+                "case_id": "1",
+                "question_id": "7",
+                "question_str": "Given that the primary diagnosis is breast cancer, list the main differential diagnoses that you should also consider for a patient presenting with a lump in the breast. Discuss how you would differentiate these from breast cancer based on clinical presentation and investigations."
+            }
+        ]
+    },
+    {
+        "case_id": "2",
+        "case_title": "Management of lung cancer ",
+        "case_vignette": "A 65-year-old male, a former smoker, visits the outpatient clinic with complaints of persistent cough and shortness of breath for the past two months. He also reports unexplained weight loss and occasional chest pain. Recently, he has started experiencing episodes of coughing up blood. His past medical history includes hypertension and chronic obstructive pulmonary disease (COPD).",
+        "questions": [
+            {
+                "case_id": "2",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history, what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "2",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "2",
+                "question_id": "3",
+                "question_str": "Detail all the immediate diagnostic procedures or tests you would perform to confirm your diagnosis. Provide details about how each test should be performed and why. Also include biomarker tests. "
+            },
+            {
+                "case_id": "2",
+                "question_id": "4",
+                "question_str": "Assume the diagnosis of a resectable NSCLC (adenocarcinoma; PD-L1 45%) is confirmed with a clinical stage cT2, cN1, M0. What are the immediate, therapeutic strategies to manage the disease? For each therapy, explain how and when it should be performed and explain alternative strategies, when the first line therapy is not indicated. "
+            },
+            {
+                "case_id": "2",
+                "question_id": "5",
+                "question_str": "What management is recommended for surveillance and follow-up in a patient with NSCLC according to current clinical guidelines? "
+            },
+            {
+                "case_id": "2",
+                "question_id": "6",
+                "question_str": "Assume the patient has locoregional recurrence after 2 years. What are the immediate, therapeutic strategies to manage the disease, e.g. in case of potential endobronchial obstruction, resectable recurrence, mediastinal lymph node recurrence? For each therapy, explain how and when it should be performed and explain alternative strategies, when the first line therapy is not indicated. "
+            },
+            {
+                "case_id": "2",
+                "question_id": "7",
+                "question_str": "Given that the primary diagnosis is NSCLS list the main differential diagnoses that you should also consider for a patient presenting with suspected lung cancer. Discuss how you would differentiate these from lung cancer based on clinical presentation and investigations."
+            }
+        ]
+    },
+    {
+        "case_id": "3",
+        "case_title": "Management of prostate cancer",
+        "case_vignette": "A 65-year-old African American male presents to the outpatient clinic with concerns about urinary symptoms that have been worsening over the past six months. He reports a slow urinary stream, increased frequency, nocturia, and occasional difficulty initiating urination. In the last two weeks, he has also noticed a mild pain and discomfort in his lower pelvic region. The patient mentions he has occasionally seen a hint of blood in his urine but has not experienced any pain while urinating. Upon further questioning, he reveals that he had undergone a vasectomy at age 45 and has a history of benign prostatic hyperplasia (BPH) diagnosed three years ago. He has no known history of sexually transmitted infections. He admits to not having a prostate-specific antigen (PSA) test for the past four years due to fear of the results. He denies any significant weight loss, bone pain, or fatigue. His father was diagnosed with prostate cancer at age 74, and an uncle had bladder cancer. He has never smoked and drinks alcohol occasionally, but in moderation.",
+        "questions": [
+            {
+                "case_id": "3",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history, what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "3",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "3",
+                "question_id": "3",
+                "question_str": "Detail all the immediate diagnostic workup, including procedures or tests, you would perform to confirm your diagnosis. Provide details about how each test should be performed and why"
+            },
+            {
+                "case_id": "3",
+                "question_id": "4",
+                "question_str": "Assume the patient has a high-risk group (prostate cancer with cT3a and PSA > 20 ng/mL) and an expected survival over 5 years. What are the next diagnostic and therapeutic steps to manage the disease? For each of them, explain how and when it should be performed and explain alternative strategies."
+            },
+            {
+                "case_id": "3",
+                "question_id": "5",
+                "question_str": "If the patient was in a low to intermediate risk group, what alternative treatment strategies would be recommended if his life expectancy was below 10 years? And what would be recommended if he was in a low to intermediate risk group with a live expectancy over 10 years?"
+            },
+            {
+                "case_id": "3",
+                "question_id": "6",
+                "question_str": "In the course of the disease, the patient's PSA levels do not fall to undetectable levels. What types of recurrence can occur in patients with prostate cancer?"
+            },
+            {
+                "case_id": "3",
+                "question_id": "7",
+                "question_str": "What are adverse effects of androgen deprivation therapy (ADT)?"
+            },
+            {
+                "case_id": "3",
+                "question_id": "8",
+                "question_str": "Given that the primary diagnosis is prostate cancer, list the main differential diagnoses that you should also consider for a patient presenting with urinary symptoms including slow urinary stream, increased frequency, nocturia, and occasional difficulty initiating urination. Discuss how you would differentiate these from prostate cancer based on clinical presentation and investigations."
+            }
+        ]
+    },
+    {
+        "case_id": "4",
+        "case_title": "Management of colon carcinoma ",
+        "case_vignette": "A 60-year-old male presents to the outpatient clinic with concerns about a change in bowel habits over the past two months, including intermittent blood in the stool and unexplained weight loss. He also reports a recent feeling of fatigue and occasional abdominal discomfort, mostly in the lower abdomen. The patient has a history of smoking and a sedentary lifestyle. His family history is significant for colorectal cancer in his father, diagnosed at age 68. He has never undergone colonoscopy screening.",
+        "questions": [
+            {
+                "case_id": "4",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history, what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "4",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "4",
+                "question_id": "3",
+                "question_str": "Detail all the immediate diagnostic procedures or tests you would perform to confirm your diagnosis. Provide details about how each test should be performed and why. "
+            },
+            {
+                "case_id": "4",
+                "question_id": "4",
+                "question_str": "Assume the diagnosis of colorectal carcinoma is confirmed with a clinical stage cT3, cN1, M0. What are the immediate, therapeutic strategies to manage the disease? For each therapy, explain how and when it should be performed and explain alternative strategies, when the first line therapy is not indicated. "
+            },
+            {
+                "case_id": "4",
+                "question_id": "5",
+                "question_str": "What adjuvant treatment would be recommended for this patient after histopathologic confirmation of tumor stage as T3N1M0?"
+            },
+            {
+                "case_id": "4",
+                "question_id": "6",
+                "question_str": "What are the molecular testing guidelines for colorectal carcinoma according to the latest version of the NCCN guideline?"
+            },
+            {
+                "case_id": "4",
+                "question_id": "7",
+                "question_str": "What management is recommended for surveillance and follow-up in a patient with colon carcinoma according to current clinical guidelines?"
+            },
+            {
+                "case_id": "4",
+                "question_id": "8",
+                "question_str": "Given that the primary diagnosis is colon carcinoma, list the main differential diagnoses. Discuss how you would differentiate these from colon carcinoma based on clinical presentation and investigations."
+            }
+        ]
+    },
+    {
+        "case_id": "5",
+        "case_title": "Management of Kidney Cancer",
+        "case_vignette": "A 65-year-old male presents to his primary care physican with painless macrohematuria. Upon further questioning, he also complains about fever, night sweats and weight loss in the past few months. He has a history of hypertension, obesity and smoking. Family history is notable for kidney cancer in his grandfather at the age of 72.",
+        "questions": [
+            {
+                "case_id": "5",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "5",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "5",
+                "question_id": "3",
+                "question_str": "Detail all the diagnostic or tests you would perform to confirm your diagnosis. Provide details about how each test should be performed and why."
+            },
+            {
+                "case_id": "5",
+                "question_id": "4",
+                "question_str": "Assume the diagnosis of kidney cancer is confirmed. What are the therapeutic strategies to manage the disease? When should which therapy be performed?"
+            },
+            {
+                "case_id": "5",
+                "question_id": "5",
+                "question_str": "The most likely diagnosis is kidney cancer. Mention possible complications of kidney cancer or complications after treatment of kidney cancer and briefly describe management of these complications."
+            },
+            {
+                "case_id": "5",
+                "question_id": "6",
+                "question_str": "Given that the primary diagnosis is kidney cancer, list the main differential diagnoses that you should also consider for a patient presenting with these symptoms. Discuss how you would differentiate these from kidney cancer based on clinical presentation and investigations."
+            }
+        ]
+    },
+    {
+        "case_id": "6",
+        "case_title": "Management of hypertension ",
+        "case_vignette": "A 35-year-old male presents to his primary care physician for a routine health screening, as part of his new job requirement. He reports feeling generally well and does not have any active complaints. However, when inquired about his lifestyle, he admits to being a regular cigarette smoker for the past 15 years and consuming a diet primarily consisting of fast foods. He is also known to have type 2 diabetes mellitus, which he says is \"mostly under control\" with the help of oral hypoglycemic agents. On further questioning, he reveals that he seldom indulges in physical activities, attributing it to his demanding office job that involves long hours at the desk. He has recently been feeling stressed due to personal issues and increased workload. He also mentions a history of chronic kidney disease in his family, with his father being on dialysis. His body mass index indicates that he is overweight. The patient reports that he recently used his father's automatic monitor to check his blood pressure and found it elevated. ",
+        "questions": [
+            {
+                "case_id": "6",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history, what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "6",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "6",
+                "question_id": "3",
+                "question_str": "Detail all the immediate diagnostic or tests and diagnostic monitoring you would perform in the Emergency Department to confirm your diagnosis. Provide details about how each test should be performed and why. "
+            },
+            {
+                "case_id": "6",
+                "question_id": "4",
+                "question_str": "Assume the diagnosis of Stage 2 hypertension (150/09 blood pressure) is confirmed. What are the immediate, therapeutic strategies to manage the disease? For each therapy, explain how and when it should be performed. In case of medication, if appropriate, provide the dosage and means of application. Also provide nonpharmacological interventions. "
+            },
+            {
+                "case_id": "6",
+                "question_id": "5",
+                "question_str": "What are the recommended blood pressure management guidelines for adults with diabetes mellitus (DM) and hypertension, and what is the rationale behind these recommendations?"
+            },
+            {
+                "case_id": "6",
+                "question_id": "6",
+                "question_str": "Mention possible complications of primary (essential) hypertension and briefly describe management of these complications. "
+            },
+            {
+                "case_id": "6",
+                "question_id": "7",
+                "question_str": "Given that the primary diagnosis is hypertension, list common differential diagnoses that you should also consider for a patient presenting with these symptoms. Discuss how you would differentiate these from heart failure based on clinical presentation and investigations."
+            }
+        ]
+    },
+    {
+        "case_id": "7",
+        "case_title": "Management of ischemic heart disease ",
+        "case_vignette": "A 55-year-old male with a history of hypercholesterolemia and smoking is under guideline-directed medical therapy (GDMT) for his chronic stable ischemic heart disease. Despite adherence to his medication regimen, which includes high-intensity statins, beta-blockers, and aspirin, he presents with increasing episodes of chest discomfort and shortness of breath. These symptoms now occur with minimal exertion and occasionally at rest, indicating a potential worsening of his condition. The discomfort is described as a pressure-like sensation in the center of his chest, intensifying during episodes of activity or stress. Accompanying symptoms include dizziness and excessive sweating, particularly noticeable during these episodes of discomfort. His symptoms have progressively worsened over the past few weeks. He has a family history of myocardial infarction, with his father having suffered one at the age of 61. Despite his medication adherence, he confesses to not following a specific diet or exercise regime.",
+        "questions": [
+            {
+                "case_id": "7",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history, what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "7",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "7",
+                "question_id": "3",
+                "question_str": "Detail all the immediate diagnostic tests you would perform in the Emergency Department to confirm your diagnosis. Provide details about how each test should be performed and why. Also detail other diagnostic tests that are recommended for diagnostic evaluation. "
+            },
+            {
+                "case_id": "7",
+                "question_id": "4",
+                "question_str": "Assume the diagnosis of unstable angina is confirmed. What are the immediate, therapeutic strategies to manage the disease according to guidelines? For each therapy, explain how and when it should be performed. In case of medication, if appropriate, provide the dosage and means of application. Also provide nonpharmacological interventions. "
+            },
+            {
+                "case_id": "7",
+                "question_id": "5",
+                "question_str": "Mention possible complications of ischemic heart disease and briefly describe management of these complications."
+            },
+            {
+                "case_id": "7",
+                "question_id": "6",
+                "question_str": "Discuss the role of revascularization in the management of patients with chronic coronary disease (CCD), with a focus on the comparative outcomes of percutaneous coronary intervention (PCI) and coronary artery bypass grafting (CABG). "
+            },
+            {
+                "case_id": "7",
+                "question_id": "7",
+                "question_str": "Discuss the long-term management and follow-up required for a patient diagnosed with ischemic heart disease."
+            },
+            {
+                "case_id": "7",
+                "question_id": "8",
+                "question_str": "Given the primary diagnosis of ischemic heart disease, list common differential diagnoses that you should also consider for a patient presenting with these symptoms. "
+            }
+        ]
+    },
+    {
+        "case_id": "8",
+        "case_title": "Management of acute chest pain / myocardial infarction",
+        "case_vignette": "A 62-year-old male presents to the Emergency Department with an acute onset of central chest pain that he describes as \"squeezing\", which started approximately 2 hours ago while he was gardening. The pain radiates to his left arm and is associated with shortness of breath, sweating, and nausea. He has a history of hypertension and type 2 diabetes mellitus, both well-controlled on medication. His only family history of note is his father, who died of a heart attack at 65 years old.",
+        "questions": [
+            {
+                "case_id": "8",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history, what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "8",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "8",
+                "question_id": "3",
+                "question_str": "Detail all the immediate diagnostic or tests and diagnostic monitoring you would perform in the Emergency Department to confirm your diagnosis. Provide details about how each test should be performed and why."
+            },
+            {
+                "case_id": "8",
+                "question_id": "4",
+                "question_str": "Assume the diagnosis of myocardial infarction (ST-elevation, hemodynamically stable) is confirmed. What are the immediate, therapeutic strategies to manage the disease? For each therapy, explain how and when it should be performed and explain alternative strategies, when the first line therapy is not indicated. In case of medication, if appropriate, provide the dosage and means of application.  "
+            },
+            {
+                "case_id": "8",
+                "question_id": "5",
+                "question_str": "The most likely diagnosis is myocardial infarction. Mention possible complications of myocardial infarctions and briefly describe management of these complications."
+            },
+            {
+                "case_id": "8",
+                "question_id": "6",
+                "question_str": "Given that the primary diagnosis is myocardial infarction, list the main differential diagnoses that you should also consider for a patient presenting with these symptoms. Discuss how you would differentiate these from myocardial infarction based on clinical presentation and investigations."
+            }
+        ]
+    },
+    {
+        "case_id": "9",
+        "case_title": "Management of heart failure ",
+        "case_vignette": "A 57-year-old female presents to the Emergency Department with a sudden onset of breathlessness that has been progressing over the past week. She describes difficulty lying flat and finds herself needing to sit up to breathe better. This discomfort also intensifies when she bends forward. Over the past couple of days, she has noticed swelling in her ankles and a pronounced bulging in the veins of her neck. Furthermore, she reports a significant reduction in her ability to perform her usual activities, attributing it to fatigue and an increased recovery time after any exertion. She mentions waking up in the middle of the night coughing and has also noticed a peculiar square-wave response during her recent doctor's visit when she was asked to perform the Valsalva maneuver. She has a medical history of hypertension and had a heart valve replacement a decade ago. Additionally, she underwent chemotherapy for breast cancer five years ago. There is a family history of ischemic heart disease: her mother suffered a myocardial infarction in her 60s.",
+        "questions": [
+            {
+                "case_id": "9",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history, what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "9",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "9",
+                "question_id": "3",
+                "question_str": "Detail all the immediate diagnostic or tests and diagnostic monitoring you would perform in the Emergency Department to confirm your diagnosis. Provide details about how each test should be performed and why. "
+            },
+            {
+                "case_id": "9",
+                "question_id": "4",
+                "question_str": "Which invasive evaluation can be performed in patients with heart failure and    \r\nshould it be performed in the patient from the case description?"
+            },
+            {
+                "case_id": "9",
+                "question_id": "5",
+                "question_str": "Assume the diagnosis of right-sided heart failure is confirmed with an ejection fraction of less than 40% and NYHA Class III. What are the immediate, therapeutic strategies to manage the disease? For each therapy, explain how and when it should be performed and explain alternative strategies, when the first line therapy is not indicated. In case of medication, if appropriate, provide the dosage and means of application. Also provide nonpharmacological interventions. "
+            },
+            {
+                "case_id": "9",
+                "question_id": "6",
+                "question_str": "The most likely diagnosis is heart failure. Mention possible complications of heart failure and briefly describe management of these complications. "
+            },
+            {
+                "case_id": "9",
+                "question_id": "7",
+                "question_str": "Given that the primary diagnosis is heart failure, list the main differential diagnoses that you should also consider for a patient presenting with these symptoms. Discuss how you would differentiate these from heart failure based on clinical presentation and investigations."
+            }
+        ]
+    },
+    {
+        "case_id": "10",
+        "case_title": "Management of anaphylaxis ",
+        "case_vignette": "A 59-year-old female presents to the radiology department for the first follow-up CT scan after resection of the right upper lobe due to small cell lung cancer. She has been administered iv contrast agent one time before during a preoperative staging CT scan. A few minutes after iv contrast injection, the patient experiences rapidly progressive severe cough, vomiting and wheezing. She is very agitated and reports that she cannot breathe. There is a rash on her upper chest, neck and face that was not present before the CT scan. The patient has a history of asthma and atopic dermatitis. ",
+        "questions": [
+            {
+                "case_id": "10",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history, what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "10",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "10",
+                "question_id": "3",
+                "question_str": "Detail all the immediate diagnostic tests and diagnostic monitoring you would perform in the Emergency Department to confirm your diagnosis. Provide details about how each test should be performed and why. "
+            },
+            {
+                "case_id": "10",
+                "question_id": "4",
+                "question_str": "Assume the diagnosis of anaphylaxis is confirmed. What are the immediate, therapeutic strategies for management? For each therapy, explain how and when it should be performed and explain alternative strategies. In case of medication, if appropriate, provide the dosage and means of application.  "
+            },
+            {
+                "case_id": "10",
+                "question_id": "5",
+                "question_str": "The most likely diagnosis is anaphylaxis. Mention possible complications of anaphylaxis and briefly describe management of these complications. "
+            },
+            {
+                "case_id": "10",
+                "question_id": "6",
+                "question_str": "Given that the primary diagnosis is anaphylaxis, list three important differential diagnoses that you should also consider for a patient presenting with these symptoms. Discuss how you would differentiate these from anaphylaxis based on clinical presentation and investigations."
+            }
+        ]
+    },
+    {
+        "case_id": "11",
+        "case_title": "Management of asthma exacerbation ",
+        "case_vignette": "A 45-year-old female with a history of well-controlled asthma and allergic rhinitis presents with increasing episodes of wheezing, shortness of breath, and chest tightness. These symptoms now occur with minimal exertion and occasionally at rest, indicating a potential exacerbation of her asthma. The wheezing is described as a high-pitched whistling sound, especially noticeable at night and early in the morning. Accompanying symptoms include a dry cough and feeling of tightness in the chest. Her symptoms have progressively worsened over the past few days. She has a family history of asthma, with her mother having suffered from severe asthma. She has been adherent to her inhaler regimen, which includes low-dose inhaled corticosteroids and a long-acting beta-agonist but confesses to encountering recent stress and exposure to pollen.",
+        "questions": [
+            {
+                "case_id": "11",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history, what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "11",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "11",
+                "question_id": "3",
+                "question_str": "Detail all the immediate diagnostic tests you would perform in the Emergency Department to confirm your diagnosis. Provide details about how each test should be performed and why. Also detail other diagnostic tests that are recommended for diagnostic evaluation. "
+            },
+            {
+                "case_id": "11",
+                "question_id": "4",
+                "question_str": "Assume the diagnosis of asthma exacerbation is confirmed with a peek expiratory flow and forced expiratory volume of less than 40%. What are the immediate, therapeutic strategies to manage the disease according to guidelines? For each therapy, explain how and when it should be performed. In case of medication, if appropriate, provide the dosage and means of application. Also provide nonpharmacological interventions. "
+            },
+            {
+                "case_id": "11",
+                "question_id": "5",
+                "question_str": "Mention possible complications of asthma and briefly describe management of these complications."
+            },
+            {
+                "case_id": "11",
+                "question_id": "6",
+                "question_str": "Discuss the long-term management and follow-up required for a patient diagnosed with asthma exacerbation."
+            },
+            {
+                "case_id": "11",
+                "question_id": "7",
+                "question_str": "Given the primary diagnosis of asthma exacerbation, list common differential diagnoses that you should also consider for a patient presenting with these symptoms."
+            }
+        ]
+    },
+    {
+        "case_id": "12",
+        "case_title": "Management of chronic obstructive pulmonary disease (COPD)",
+        "case_vignette": "A 68-year-old female presents to the clinic with a persistent cough and increasing difficulty in breathing over the past few months. She reports a long history of smoking, approximately a pack a day for 40 years, though she quit smoking 5 years ago. She also mentions frequent bouts of bronchitis every winter for the last few years. On examination, she exhibits wheezing during expiration and a prolonged expiratory phase. Her respiratory rate is elevated, and she appears to be using accessory muscles to breathe.",
+        "questions": [
+            {
+                "case_id": "12",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history, what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "12",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "12",
+                "question_id": "3",
+                "question_str": "Detail all the immediate diagnostic tests you would perform in the Emergency Department to confirm your diagnosis. Provide details about how each test should be performed and why. Also detail other diagnostic tests that are recommended for diagnostic evaluation."
+            },
+            {
+                "case_id": "12",
+                "question_id": "4",
+                "question_str": "Assume the diagnosis of COPD is confirmed. What are the immediate, therapeutic strategies to manage the disease according to guidelines? For each therapy, explain how and when it should be performed. In case of medication, if appropriate, provide the dosage and means of application. Also provide nonpharmacological interventions."
+            },
+            {
+                "case_id": "12",
+                "question_id": "5",
+                "question_str": "Mention possible complications of COPD and briefly describe management of these complications."
+            },
+            {
+                "case_id": "12",
+                "question_id": "6",
+                "question_str": "Given the primary diagnosis of COPD, list the main differential diagnoses that you should also consider for a patient presenting with these symptoms."
+            }
+        ]
+    },
+    {
+        "case_id": "13",
+        "case_title": "Management of liver cirrhosis ",
+        "case_vignette": "A 52-year-old male with a notable history of alcohol use disorder and a recent diagnosis of nonalcoholic steatohepatitis (NASH) presents with multiple symptoms indicative of advanced liver disease. He reports persistent fatigue and significant weight loss over the past few months. On examination, he exhibits abdominal distension, suggestive of ascites, a common complication of cirrhosis. Additionally, he has developed jaundice, a clear sign of hepatic dysfunction. Dermatological findings include spider angiomas on his chest and arms, as well as palmar erythema. He has a long history of alcohol consumption, averaging over two decades, and admits to using over-the-counter pain relievers regularly for chronic back pain. He leads a sedentary lifestyle and has no family history of liver disease.",
+        "questions": [
+            {
+                "case_id": "13",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history, what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "13",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "13",
+                "question_id": "3",
+                "question_str": "Detail all the immediate diagnostic tests you would perform in the Emergency Department to confirm your diagnosis. Provide details about how each test should be performed and why. Also detail other diagnostic tests that are recommended for diagnostic evaluation."
+            },
+            {
+                "case_id": "13",
+                "question_id": "4",
+                "question_str": "Assume the diagnosis of liver cirrhosis is confirmed. What are the immediate, therapeutic strategies to manage the disease according to guidelines? For each therapy, explain how and when it should be performed. In case of medication, if appropriate, provide the dosage and means of application. Also provide nonpharmacological interventions."
+            },
+            {
+                "case_id": "13",
+                "question_id": "5",
+                "question_str": "Mention possible complications of liver cirrhosis and briefly describe management of these complications."
+            },
+            {
+                "case_id": "13",
+                "question_id": "6",
+                "question_str": "Given the primary diagnosis of liver cirrhosis, list the five main differential diagnoses that you should also consider for a patient presenting with these symptoms."
+            }
+        ]
+    },
+    {
+        "case_id": "14",
+        "case_title": "Management of acute kidney injury ",
+        "case_vignette": "A 68-year-old female presents to the Emergency Department with reduced urine output and fatigue over the past two days. She has been experiencing orthostatic dizziness and palpitations, especially when standing up quickly. She mentions a recent severe bout of diarrhea, after which she did not adequately rehydrate herself. She has a medical history of hypertension and type 2 diabetes mellitus, managed with medication. Recently, she started taking NSAIDs for joint pain. She also complains of mild shortness of breath and peripheral edema. ",
+        "questions": [
+            {
+                "case_id": "14",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "14",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "14",
+                "question_id": "3",
+                "question_str": "Detail all the immediate diagnostic or tests and diagnostic monitoring you would perform in the Emergency Department to confirm your diagnosis. Provide details about how each test should be performed and why. "
+            },
+            {
+                "case_id": "14",
+                "question_id": "4",
+                "question_str": "Assume the diagnosis of acute kidney injury is confirmed (AKI stage 2, prerenal). What are the immediate, therapeutic strategies to manage the disease according to guidelines?"
+            },
+            {
+                "case_id": "14",
+                "question_id": "5",
+                "question_str": "The most likely diagnosis is acute kidney injury. Mention possible complications of AKI and briefly describe management of these complications."
+            },
+            {
+                "case_id": "14",
+                "question_id": "6",
+                "question_str": "What are the key components of supportive care and follow-up management for a patient recovering from acute kidney injury (AKI)?"
+            },
+            {
+                "case_id": "14",
+                "question_id": "7",
+                "question_str": "Given that the primary diagnosis is acute kidney injury, list common differential diagnoses that you should also consider for a patient presenting with these symptoms. Discuss how you would differentiate these from acute kidney injury based on clinical presentation and investigations."
+            }
+        ]
+    },
+    {
+        "case_id": "15",
+        "case_title": "Management of chronic kidney disease ",
+        "case_vignette": "A 55-year-old male with a history of hypercholesterolemia and smoking presents with concerns related to his chronic kidney disease (CKD). He has been diagnosed with CKD stage 3 due to longstanding hypertension and type 2 diabetes mellitus, which are well-controlled with medication. Recently, he has been experiencing increased fatigue, occasional nocturia, and pruritus. He reports a gradual increase in serum creatinine levels over the past few months. He has a family history of CKD, with his mother having been diagnosed in her late 60s. He admits to a diet high in processed foods and has not been adhering to recommended fluid intake.",
+        "questions": [
+            {
+                "case_id": "15",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history, what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "15",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "15",
+                "question_id": "3",
+                "question_str": "Detail all the immediate diagnostic tests you would perform in the Emergency Department to confirm your diagnosis. Provide details about how each test should be performed and why. Also detail other diagnostic tests that are recommended for diagnostic evaluation. "
+            },
+            {
+                "case_id": "15",
+                "question_id": "4",
+                "question_str": "Assume the diagnosis of chronic kidney disease is confirmed. What are the immediate, therapeutic strategies to manage the disease according to guidelines? For each therapy, explain how and when it should be performed. In case of medication, if appropriate, provide the dosage and means of application. Also provide nonpharmacological interventions. "
+            },
+            {
+                "case_id": "15",
+                "question_id": "5",
+                "question_str": "Mention possible complications of chronic kidney disease and briefly describe management of these complications."
+            },
+            {
+                "case_id": "15",
+                "question_id": "6",
+                "question_str": "Discuss the long-term management and follow-up required for a patient diagnosed with chronic kidney disease."
+            },
+            {
+                "case_id": "15",
+                "question_id": "7",
+                "question_str": "Given the primary diagnosis of chronic kidney disease, list common differential diagnoses that you should also consider for a patient presenting with these symptoms."
+            }
+        ]
+    },
+    {
+        "case_id": "16",
+        "case_title": "Management of Type 2 Diabetes Mellitus ",
+        "case_vignette": "A 62-year-old male presents to the primary care clinic for a routine follow-up. He reports increased thirst, frequent urination, and a recent unexplained weight loss of 10 pounds over the past two months. He has a history of hypertension and a sedentary lifestyle. His family history is significant for type 2 diabetes mellitus in his mother, and there's a known history of cardiovascular disease in the family. He is overweight, with a recent increase in weight prior to the unexplained weight loss. His current medications include lisinopril for hypertension. He has no known allergies.",
+        "questions": [
+            {
+                "case_id": "16",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history, what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "16",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "16",
+                "question_id": "3",
+                "question_str": "Detail all the immediate diagnostic or tests and diagnostic monitoring you would perform in the Emergency Department to confirm your diagnosis. Provide details about how each test should be performed and why. "
+            },
+            {
+                "case_id": "16",
+                "question_id": "4",
+                "question_str": "Assume the diagnosis of Type 2 Diabetes Mellitus is confirmed. What are the immediate, therapeutic strategies to manage the disease? For each therapy, explain how and when it should be performed and explain alternative strategies when the first-line therapy is not indicated. In case of medication, if appropriate, provide the dosage and means of application."
+            },
+            {
+                "case_id": "16",
+                "question_id": "5",
+                "question_str": "Given that the primary diagnosis is Type 2 Diabetes Mellitus, mention possible complications of this condition and briefly describe the management of these complications."
+            },
+            {
+                "case_id": "16",
+                "question_id": "6",
+                "question_str": "Given that the primary diagnosis is Type 2 Diabetes Mellitus, list the main differential diagnoses that you should also consider for a patient presenting with these symptoms. Discuss how you would differentiate these from Type 2 Diabetes Mellitus based on clinical presentation and investigations."
+            }
+        ]
+    },
+    {
+        "case_id": "17",
+        "case_title": "Management of acute appendicitis ",
+        "case_vignette": "A 30-year-old male presents to the Emergency Department complaining of abdominal pain that began around 10 hours ago. The pain initially started around his navel but has since migrated to the right lower quadrant (RLQ) of his abdomen. He describes the pain as a constant, dull ache that intensifies with movement. Accompanying symptoms include loss of appetite, nausea, and a low-grade fever. He denies any vomiting, diarrhea, or urinary symptoms. The patient has no significant past medical or surgical history. He is not on any medications and has no known drug allergies. There is no family history of gastrointestinal diseases. On examination, his vital signs are stable, but he exhibits tenderness in the RLQ on palpation.",
+        "questions": [
+            {
+                "case_id": "17",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history, what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "17",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "17",
+                "question_id": "3",
+                "question_str": "Detail all the immediate diagnostic or tests and diagnostic monitoring you would perform in the Emergency Department to confirm your diagnosis. Provide details about how each test should be performed and why, also referring to other patients with appendicitis.  "
+            },
+            {
+                "case_id": "17",
+                "question_id": "4",
+                "question_str": "Assume the diagnosis of acute appendicitis is confirmed. What are the immediate, therapeutic strategies to manage the disease? For each therapy, explain how and when it should be performed and explain alternative strategies, when the first line therapy is not indicated. In case of medication, if appropriate, provide the dosage and means of application.  "
+            },
+            {
+                "case_id": "17",
+                "question_id": "5",
+                "question_str": "The most likely diagnosis is acute appendicitis. Mention possible complications of acute appendicitis and briefly describe management of these complications. "
+            },
+            {
+                "case_id": "17",
+                "question_id": "6",
+                "question_str": "Given that the primary diagnosis is acute appendicitis, list the main differential diagnoses that you should also consider for a patient presenting with these symptoms. Discuss how you would differentiate these from acute appendicitis based on clinical presentation and investigations."
+            }
+        ]
+    },
+    {
+        "case_id": "18",
+        "case_title": "Management of stroke ",
+        "case_vignette": "A 72-year-old male presents to the Emergency Department with sudden onset of right-sided weakness and difficulty speaking. The symptoms were first noticed upon waking up, approximately 3 hours before presenting to the hospital. The patient has a medical history of well-controlled hypertension and type 2 diabetes mellitus. There is a significant family history of cerebrovascular disease, with his father having experienced a stroke at the age of 65.      ",
+        "questions": [
+            {
+                "case_id": "18",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history, what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "18",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "18",
+                "question_id": "3",
+                "question_str": "Detail all the immediate diagnostic or tests and diagnostic monitoring you would perform in the Emergency Department to confirm your diagnosis. Provide details about how each test should be performed and why. "
+            },
+            {
+                "case_id": "18",
+                "question_id": "4",
+                "question_str": "Assume the diagnosis of ischemic stroke is confirmed with already faint demarcation in the area supplied by the middle cerebral artery and no intracranial hemorrhage, as observed in the CT scan. For each therapy, explain how and when it should be performed and explain alternative strategies, when the first line therapy is not indicated. In case of medication, if appropriate, provide the dosage and means of application"
+            },
+            {
+                "case_id": "18",
+                "question_id": "5",
+                "question_str": "The most likely diagnosis is stroke. Mention possible complications of stroke and briefly describe management of these complications. "
+            },
+            {
+                "case_id": "18",
+                "question_id": "6",
+                "question_str": "What are strategies for secondary prevention and rehabilitation after stroke?"
+            },
+            {
+                "case_id": "18",
+                "question_id": "7",
+                "question_str": "Given that the primary diagnosis is stroke, list the five main differential diagnoses that you should also consider for a patient presenting with these symptoms. Discuss how you would differentiate these from the stroke based on clinical presentation and investigations."
+            }
+        ]
+    },
+    {
+        "case_id": "19",
+        "case_title": "Management of HIV/AIDS ",
+        "case_vignette": "A 32-year-old individual presents to the clinic with symptoms persisting for three weeks. The clinical manifestations include fever, fatigue, generalized rash, unintentional weight loss, and occasional night sweats. The patient also reports a history of multiple unprotected sexual encounters and intravenous drug use. There is no significant medical or family history reported. Additionally, the patient mentions experiencing frequent headaches, muscle and joint pains, and has noticed swollen lymph nodes. They also describe episodes of nausea and diarrhea within the same time frame. Despite the absence of any chronic conditions, the patient expresses concern about the sudden onset and persistence of these symptoms.",
+        "questions": [
+            {
+                "case_id": "19",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history, what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "19",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "19",
+                "question_id": "3",
+                "question_str": "Detail all the immediate diagnostic tests and diagnostic monitoring you would perform in the clinic to confirm your diagnosis. Provide details about how each test should be performed and why."
+            },
+            {
+                "case_id": "19",
+                "question_id": "4",
+                "question_str": "Assume the diagnosis of HIV/AIDS is confirmed. What are the immediate therapeutic strategies to manage the disease? For each therapy, explain how and when it should be performed and explain alternative strategies when the first-line therapy is not indicated. In case of medication, if appropriate, provide the dosage and means of application."
+            },
+            {
+                "case_id": "19",
+                "question_id": "5",
+                "question_str": "The most likely diagnosis is HIV/AIDS. Mention possible complications of HIV and briefly describe management of these complications. "
+            },
+            {
+                "case_id": "19",
+                "question_id": "6",
+                "question_str": "What are the key strategies for the prevention of HIV transmission, and how should they be implemented in clinical practice?"
+            },
+            {
+                "case_id": "19",
+                "question_id": "7",
+                "question_str": "Given that the primary diagnosis is HIV/AIDS, list differential diagnoses that you should also consider for a patient presenting with these symptoms. Discuss how you would differentiate these from HIV/AIDS based on clinical presentation and investigations."
+            }
+        ]
+    },
+    {
+        "case_id": "20",
+        "case_title": "Management major depressive disorder ",
+        "case_vignette": "A 35-year-old male presents to his primary care physician for a mandatory health screening required by his new employer. The patient appears overall healthy but reports a history of regular cigarette smoking for the past 15 years and a diet predominantly consisting of fast food. He has a known history of type 2 diabetes, which he manages with oral hypoglycemics. Due to his sedentary job, he admits to a lack of regular physical activity. The patient expresses experiencing increased levels of stress recently, stemming from both personal issues and heightened demands at work. He mentions a family history of chronic kidney disease and his concern about being overweight, as indicated by his body mass index. During the consultation, the patient reveals feelings of persistent sadness and a noticeable loss of interest in activities that he once found enjoyable. He initially attributed these feelings to the stress in his life but now recognizes them as overwhelming and persistent. In addition to the primary concerns, the patient also notes occasional disturbances in his sleep pattern, fluctuating appetite, and a sense of fatigue that seems disproportionate to his level of physical activity. He mentions struggling with concentration at work and feeling unusually indecisive, even in mundane day-to-day decisions.",
+        "questions": [
+            {
+                "case_id": "20",
+                "question_id": "1",
+                "question_str": "Based on the patient's presentation and past medical history, what is your primary working diagnosis? Please justify your response using the provided clinical information."
+            },
+            {
+                "case_id": "20",
+                "question_id": "2",
+                "question_str": "What are significant risk factors for your primary working diagnosis obtainable from the above case report?"
+            },
+            {
+                "case_id": "20",
+                "question_id": "3",
+                "question_str": "Detail all the immediate diagnostic or tests and diagnostic monitoring you would perform in the Emergency Department to confirm your diagnosis. Provide details about how each test should be performed and why. "
+            },
+            {
+                "case_id": "20",
+                "question_id": "4",
+                "question_str": "Assume the diagnosis of Major Depressive Disorder is confirmed. What are the immediate therapeutic strategies to manage the disease? For each therapy, explain how and when it should be performed. In case of medication, if appropriate, provide the dosage and means of application. Also provide nonpharmacological interventions."
+            },
+            {
+                "case_id": "20",
+                "question_id": "5",
+                "question_str": "How do you monitor treatment efficacy and adjust therapies for adults with Major Depressive Disorder, and what strategies do you implement for long-term management and medication adjustments, including switching and discontinuation?"
+            },
+            {
+                "case_id": "20",
+                "question_id": "6",
+                "question_str": "Mention possible complications of Major Depressive Disorder and briefly describe management of these complications. "
+            },
+            {
+                "case_id": "20",
+                "question_id": "7",
+                "question_str": "Given that the primary diagnosis is Major Depressive Disorder, list common differential diagnoses that you should also consider for a patient presenting with these symptoms. Discuss how you would differentiate these from Major Depressive Disorder based on clinical presentation and investigations."
+            }
+        ]
+    }
+]
