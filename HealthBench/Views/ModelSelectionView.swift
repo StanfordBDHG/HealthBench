@@ -8,6 +8,31 @@
 
 import SwiftUI
 
+
+private struct ModelSelectionCell: View {
+    let model: String
+    let isSelected: Bool
+    let isFinished: Bool
+    let toggleSelection: () -> Void
+
+    var body: some View {
+        Button(action: toggleSelection) {
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("`\(model)`")
+                    Spacer()
+                    Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+                        .accessibilityLabel(isSelected ? "Selected" : "Not Selected")
+                }
+                Text("Finished")
+                    .foregroundStyle(.gray)
+                    .font(.footnote)
+                    .opacity(isFinished ? 1 : 0)
+            }
+        }
+    }
+}
+
 struct ModelSelectionView: View {
     @Binding var selectedModels: [String]
     @Binding var finishedModels: [String]
@@ -33,29 +58,6 @@ struct ModelSelectionView: View {
             selectedModels.remove(at: idx)
         } else {
             selectedModels.append(model)
-        }
-    }
-}
-
-struct ModelSelectionCell: View {
-    let model: String
-    let isSelected: Bool
-    let isFinished: Bool
-    let toggleSelection: () -> Void
-
-    var body: some View {
-        Button(action: toggleSelection) {
-            VStack(alignment: .leading) {
-                HStack {
-                    Text("`\(model)`")
-                    Spacer()
-                    Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
-                }
-                Text("Finished")
-                    .foregroundStyle(.gray)
-                    .font(.footnote)
-                    .opacity(isFinished ? 1 : 0)
-            }
         }
     }
 }

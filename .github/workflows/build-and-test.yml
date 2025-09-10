@@ -26,9 +26,6 @@ jobs:
     with:
       artifactname: HealthBench.xcresult
       runsonlabels: '["macOS", "self-hosted"]'
-      checkout_submodules: true
-      setupfirebaseemulator: true
-      firebasejsonpath: ./firebase/firebase.json
       fastlanelane: test
   uploadcoveragereport:
     name: Upload Coverage Report

@@ -8,6 +8,24 @@
 
 import SwiftUI
 
+
+private struct CaseSelectionCell: View {
+    let id: String
+    let isSelected: Bool
+    let toggle: () -> Void
+
+    var body: some View {
+        Button(action: toggle) {
+            HStack {
+                Text("CaseID: `\(id)`")
+                Spacer()
+                Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+                    .accessibilityLabel(isSelected ? "Selected" : "Not Selected")
+            }
+        }
+    }
+}
+
 struct CaseSelectionView: View {
     @Environment(BenchmarkProcessor.self) private var benchmark
     @Binding var onlySelectedCase: Bool
@@ -34,22 +52,6 @@ struct CaseSelectionView: View {
             selectedCase.remove(at: idx)
         } else {
             selectedCase.append(id)
-        }
-    }
-}
-
-struct CaseSelectionCell: View {
-    let id: String
-    let isSelected: Bool
-    let toggle: () -> Void
-
-    var body: some View {
-        Button(action: toggle) {
-            HStack {
-                Text("CaseID: `\(id)`")
-                Spacer()
-                Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
-            }
         }
     }
 }

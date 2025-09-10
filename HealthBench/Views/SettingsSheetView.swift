@@ -33,7 +33,7 @@ struct SettingsSheetView: View {
                 Button("Delete Models") {
                     Task {
                         for model in StorageKeys.generatorModels {
-                            let _ = try? await benchmark.downloader.delete(model: model)
+                            _ = try? await benchmark.downloader.delete(model: model)
                         }
                     }
                 }.tint(.red)
