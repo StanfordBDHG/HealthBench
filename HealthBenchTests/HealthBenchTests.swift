@@ -6,13 +6,10 @@
 // SPDX-License-Identifier: MIT
 //
 
-import Foundation
+import Testing
 
 
-struct Metadata: Codable {
-    let device: String
-    let operatingSystem: String
-    let totalStorage: String
-    let freeStorage: String
-    let totalMemory: String
+struct HealthBenchTests {
+    @Test
+    func emptyTest() async throws { }
 }

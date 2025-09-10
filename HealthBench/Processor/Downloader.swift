@@ -1,13 +1,14 @@
 //
-//  Downloader.swift
-//  HealthBench
+// This source file is part of the Stanford Biodesign Digital Health HealthBench project
 //
-//  Created by Leon Nissen on 1/23/25.
+// SPDX-FileCopyrightText: 2025 Stanford University and the project authors (see CONTRIBUTORS.md)
+//
+// SPDX-License-Identifier: MIT
 //
 
-import SwiftUI
 import Hub
 import Spezi
+import SwiftUI
 
 
 @Observable
@@ -55,7 +56,7 @@ class Downloader: DefaultInitializable, Module {
             UIApplication.shared.isIdleTimerDisabled = true
         }
         
-        guard let selectedModels = Array<String>(rawValue: UserDefaults.standard.string(forKey: StorageKeys.selectedModels) ?? "[]") else {
+        guard let selectedModels = [String](rawValue: UserDefaults.standard.string(forKey: StorageKeys.selectedModels) ?? "[]") else {
             await MainActor.run {
                 UIApplication.shared.isIdleTimerDisabled = false
             }

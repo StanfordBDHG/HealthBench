@@ -1,15 +1,16 @@
 //
-//  BenchmarkProcessor.swift
-//  HealthBench
+// This source file is part of the Stanford Biodesign Digital Health HealthBench project
 //
-//  Created by Leon Nissen on 1/23/25.
+// SPDX-FileCopyrightText: 2025 Stanford University and the project authors (see CONTRIBUTORS.md)
+//
+// SPDX-License-Identifier: MIT
 //
 
+import MLX
 import Spezi
 import SpeziLLM
 import SpeziLLMLocal
 import SwiftUI
-import MLX
 
 
 @Observable
@@ -25,7 +26,7 @@ class BenchmarkProcessor: DefaultInitializable, Module, EnvironmentAccessible {
             UserDefaults.standard.set(newValue, forKey: StorageKeys.finishedModels)
         }
     }
-    @ObservationIgnored private var benchmarkTask: Task<(), Never>? = nil
+    @ObservationIgnored private var benchmarkTask: Task<(), Never>?
     @ObservationIgnored let cases: [Case]
     @ObservationIgnored @Dependency(Downloader.self) var downloader = Downloader()
     @ObservationIgnored @Dependency(LLMRunner.self) private var runner
@@ -41,17 +42,24 @@ class BenchmarkProcessor: DefaultInitializable, Module, EnvironmentAccessible {
     }
     
     func start() {
-        guard ProcessInfo.processInfo.isLowPowerModeEnabled == false else { return }
+        guard ProcessInfo.processInfo.isLowPowerModeEnabled == false else {
+            return
+        }
         
+        setupBenchmarkEnvironment()
+        let selectedModels = getSelectedModels()
+        startBenchmarkTask(with: selectedModels)
+    }
+    
+    private func setupBenchmarkEnvironment() {
         UIApplication.shared.isIdleTimerDisabled = true
         running = true
         PerformanceProcessor.shared.start()
-        
-        guard var selectedModels = Array<String>(rawValue: UserDefaults.standard.string(forKey: StorageKeys.selectedModels) ?? "[]") else {
-            Task { @MainActor in
-                stop()
-            }
-            return
+    }
+    
+    private func getSelectedModels() -> [String] {
+        guard var selectedModels = [String](rawValue: UserDefaults.standard.string(forKey: StorageKeys.selectedModels) ?? "[]") else {
+            return []
         }
         
         if selectedModels.isEmpty {
@@ -59,132 +67,157 @@ class BenchmarkProcessor: DefaultInitializable, Module, EnvironmentAccessible {
         }
         
         print("selectedModels", selectedModels)
-        
+        return selectedModels
+    }
+    
+    private func startBenchmarkTask(with selectedModels: [String]) {
         benchmarkTask = Task(priority: .userInitiated) {
-            modelLoop: for (modelIndex, model) in selectedModels.enumerated() {
-                if benchmarkTask?.isCancelled ?? true {
-                    return
-                }
-                currentModel = model
-                
-                print("finishedModels", finishedModels)
-                
-                // already benched?
-                if finishedModels.contains(model) {
-                    continue
-                }
-               
-                // download
-                do {
-                    status = ["Downloading Model: \(model)"]
-                    try await downloader.load(model: model)
-                } catch {
-                    print("cannot download", model)
-                    print(error)
-                    continue
-                }
-                
-                if benchmarkTask?.isCancelled ?? true {
-                    return
-                }
-                
-                // load into memory
-                status = ["Load Model: \(model)"]
-                let llmModel = LLMLocalModel.custom(id: model)
-                
-                do {
-                    if !(benchmarkTask?.isCancelled ?? true) {
-                        try await setupLLM(model: llmModel)
-                    }
-                } catch {
-                    print("cannot setup LLM", model)
-                    print(error)
-                    continue
-                }
-                
-                // benchmark each case
-                for currentCase in cases {
-                    if UserDefaults.standard.bool(forKey: StorageKeys.onlySelectedCase),
-                       let selectedCases = Array<String>(rawValue: UserDefaults.standard.string(forKey: StorageKeys.selectedCases) ?? "[]"),
-                       !selectedCases.contains(currentCase.id) {
-                        continue
-                    }
-                    
-                    // benchmark each question in this case
-                    for currentQuestion in currentCase.questions {
-                        if benchmarkTask?.isCancelled ?? true {
-                            break modelLoop
-                        }
-                        
-                        status = [
-                            "Model: \(modelIndex + 1)/\(selectedModels.count)",
-                            "Case: \(currentCase.id)/\(cases.count)",
-                            "Question: \(currentQuestion.id)/\(currentCase.questions.count)"
-                        ]
-                        
-                        while case .critical = ProcessInfo.processInfo.thermalState {
-                            if let last = status.last,
-                               !last.contains("Overheating") {
-                                status.append("Overheating ThermalState: \(ProcessInfo.processInfo.thermalState)")
-                            }
-                            do {
-                                try await Task.sleep(for: .seconds(10))
-                            } catch {
-                                break
-                            }
-                        }
-                        
-                        do {
-                            if benchmarkTask?.isCancelled ?? true {
-                                return
-                            }
-                            let started = Date()
-                            let generationResponse = try await executeLLM(currentCase: currentCase, currentQuestion: currentQuestion)
-                            let ended = Date()
-                            
-                            PersistenceController.shared.saveAnswer(
-                                model: model,
-                                caseID: currentCase.id,
-                                questionID: currentQuestion.id,
-                                question: currentQuestion.questionStr,
-                                generatorResponse: generationResponse?.output ?? "No response from generation model",
-                                started: started,
-                                ended: ended,
-                                inputTime: generationResponse?.promptTime ?? -1,
-                                inputTokenPerSec: generationResponse?.promptTokensPerSecond ?? -1,
-                                inputTokenCount: Double(generationResponse?.inputTokens.count ?? -1),
-                                outputTime: generationResponse?.generateTime ?? -1,
-                                outputTokenPerSec: generationResponse?.tokensPerSecond ?? -1,
-                                outputTokenCount: Double(generationResponse?.outputTokens.count ?? -1)
-                            )
-                            MLX.GPU.clearCache()
-                        } catch {
-                            print("cannot bench question", currentCase.id, currentQuestion.id)
-                            print(error)
-                            continue
-                        }
-                    }
-                }
-                
-                if benchmarkTask?.isCancelled ?? true {
-                    return
-                }
-                
-                await offloadLLM()
-
-                // add to finished
-                finishedModels.append(model)
-                if !UserDefaults.standard.bool(forKey: StorageKeys.deleteModelWhenFinish) {
-                    do {
-                        try await downloader.delete(model: model)
-                    } catch {
-                        print("cannot delete", model)
-                        print(error)
-                        continue
-                    }
-                }
-            }
+            await processModels(selectedModels)
             await stop()
+        }
+    }
+    
+    private func processModels(_ selectedModels: [String]) async {
+        for (modelIndex, model) in selectedModels.enumerated() {
+            if benchmarkTask?.isCancelled ?? true {
+                return
+            }
+            currentModel = model
+            
+            print("finishedModels", finishedModels)
+            
+            // already benched?
+            if finishedModels.contains(model) {
+                continue
+            }
+            
+            do {
+                try await downloadAndSetupModel(model)
+                try await benchmarkModel(model, modelIndex: modelIndex, totalModels: selectedModels.count)
+                await cleanupModel(model)
+            } catch {
+                print("Error processing model \(model): \(error)")
+                continue
+            }
+        }
+    }
+    
+    private func downloadAndSetupModel(_ model: String) async throws {
+        // download
+        status = ["Downloading Model: \(model)"]
+        try await downloader.load(model: model)
+        
+        if benchmarkTask?.isCancelled ?? true {
+            throw CancellationError()
+        }
+        
+        // load into memory
+        status = ["Load Model: \(model)"]
+        let llmModel = LLMLocalModel.custom(id: model)
+        
+        if !(benchmarkTask?.isCancelled ?? true) {
+            try await setupLLM(model: llmModel)
+        }
+    }
+    
+    private func benchmarkModel(_ model: String, modelIndex: Int, totalModels: Int) async throws {
+        for currentCase in cases {
+            if shouldSkipCase(currentCase) {
+                continue
+            }
+            
+            for currentQuestion in currentCase.questions {
+                if benchmarkTask?.isCancelled ?? true {
+                    return
+                }
+                
+                try await processQuestion(
+                    model: model,
+                    currentCase: currentCase,
+                    currentQuestion: currentQuestion,
+                    modelIndex: modelIndex,
+                    totalModels: totalModels
+                )
+            }
+        }
+    }
+    
+    private func shouldSkipCase(_ currentCase: Case) -> Bool {
+        if UserDefaults.standard.bool(forKey: StorageKeys.onlySelectedCase),
+           let selectedCases = [String](rawValue: UserDefaults.standard.string(forKey: StorageKeys.selectedCases) ?? "[]"),
+           !selectedCases.contains(currentCase.id) {
+            return true
+        }
+        return false
+    }
+    
+    private func processQuestion(
+        model: String,
+        currentCase: Case,
+        currentQuestion: Question,
+        modelIndex: Int,
+        totalModels: Int
+    ) async throws {
+        status = [
+            "Model: \(modelIndex + 1)/\(totalModels)",
+            "Case: \(currentCase.id)/\(cases.count)",
+            "Question: \(currentQuestion.id)/\(currentCase.questions.count)"
+        ]
+        
+        try await waitForAcceptableThermalState()
+        
+        if benchmarkTask?.isCancelled ?? true {
+            return
+        }
+        
+        let started = Date()
+        let generationResponse = try await executeLLM(currentCase: currentCase, currentQuestion: currentQuestion)
+        let ended = Date()
+        
+        PersistenceController.shared.saveAnswer(
+            model: model,
+            caseID: currentCase.id,
+            questionID: currentQuestion.id,
+            question: currentQuestion.questionStr,
+            generatorResponse: generationResponse?.output ?? "No response from generation model",
+            started: started,
+            ended: ended,
+            inputTime: generationResponse?.promptTime ?? -1,
+            inputTokenPerSec: generationResponse?.promptTokensPerSecond ?? -1,
+            inputTokenCount: Double(generationResponse?.inputTokens.count ?? -1),
+            outputTime: generationResponse?.generateTime ?? -1,
+            outputTokenPerSec: generationResponse?.tokensPerSecond ?? -1,
+            outputTokenCount: Double(generationResponse?.outputTokens.count ?? -1)
+        )
+        MLX.GPU.clearCache()
+    }
+    
+    private func waitForAcceptableThermalState() async throws {
+        while case .critical = ProcessInfo.processInfo.thermalState {
+            if let last = status.last,
+               !last.contains("Overheating") {
+                status.append("Overheating ThermalState: \(ProcessInfo.processInfo.thermalState)")
+            }
+            try await Task.sleep(for: .seconds(10))
+        }
+    }
+    
+    private func cleanupModel(_ model: String) async {
+        if benchmarkTask?.isCancelled ?? true {
+            return
+        }
+        
+        await offloadLLM()
+        
+        // add to finished
+        finishedModels.append(model)
+        if !UserDefaults.standard.bool(forKey: StorageKeys.deleteModelWhenFinish) {
+            do {
+                try await downloader.delete(model: model)
+            } catch {
+                print("cannot delete", model)
+                print(error)
+            }
         }
     }
     
@@ -213,8 +246,8 @@ class BenchmarkProcessor: DefaultInitializable, Module, EnvironmentAccessible {
         print("setupLLM", maxOutputLength)
         let schema = LLMLocalSchema(
             model: model,
-            parameters: LLMLocalParameters(maxOutputLength: maxOutputLength, displayEveryNTokens: 20), // TODO: SET
-            samplingParameters: LLMLocalSamplingParameters(temperature: 0.1), // TODO: SET
+            parameters: LLMLocalParameters(maxOutputLength: maxOutputLength, displayEveryNTokens: 20),
+            samplingParameters: LLMLocalSamplingParameters(temperature: 0.1),
             injectIntoContext: false
         )
         let session = runner(with: schema)
@@ -224,7 +257,9 @@ class BenchmarkProcessor: DefaultInitializable, Module, EnvironmentAccessible {
     
     
     private func executeLLM(currentCase: Case, currentQuestion: Question) async throws -> LLMLocalGenerationResult? {
-        guard let session else { return nil }
+        guard let session else {
+            return nil
+        }
         
         let context = generateContext(currentCase: currentCase, currentQuestion: currentQuestion)
         await MainActor.run {
@@ -243,7 +278,9 @@ class BenchmarkProcessor: DefaultInitializable, Module, EnvironmentAccessible {
     }
     
     func offloadLLM() async {
-        guard let session = session else { return }
+        guard let session = session else {
+            return
+        }
         await session.offload()
         self.session = nil
     }

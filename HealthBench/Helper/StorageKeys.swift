@@ -1,11 +1,13 @@
 //
-//  StorageKeys.swift
-//  HealthBench
+// This source file is part of the Stanford Biodesign Digital Health HealthBench project
 //
-//  Created by Leon Nissen on 1/23/25.
+// SPDX-FileCopyrightText: 2025 Stanford University and the project authors (see CONTRIBUTORS.md)
+//
+// SPDX-License-Identifier: MIT
 //
 
 import Foundation
+
 
 enum StorageKeys {
     static let deleteModelWhenFinish = "deleteModelWhenFinish"
@@ -38,10 +40,9 @@ enum StorageKeys {
         "mlx-community/medllama3-v20",                          // 8B = 8GB
         "mlx-community/Llama3-Med42-8B",                        // 8B = 8GB
         "mlx-community/Meta-Llama-3.1-8B-Instruct-4bit",        // 8B = 8GB
-        "mlx-community/DeepSeek-R1-Distill-Llama-8B-4bit-mlx",  // 8B = 8GB
+        "mlx-community/DeepSeek-R1-Distill-Llama-8B-4bit-mlx"   // 8B = 8GB
     ]
     
     static let performanceLogInterval = 0.5
     static let performanceSaveInterval = 5.0
-    
 }

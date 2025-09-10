@@ -1,20 +1,22 @@
 //
-//  Question.swift
-//  HealthBench
+// This source file is part of the Stanford Biodesign Digital Health HealthBench project
 //
-//  Created by Leon Nissen on 1/23/25.
+// SPDX-FileCopyrightText: 2025 Stanford University and the project authors (see CONTRIBUTORS.md)
+//
+// SPDX-License-Identifier: MIT
 //
 
 import Foundation
 
 struct Question: Codable {
-    let id: String
-    let caseID: String
-    let questionStr: String
-    
     enum CodingKeys: String, CodingKey {
         case id = "question_id"
         case caseID = "case_id"
         case questionStr = "question_str"
     }
+    
+
+    let id: String
+    let caseID: String
+    let questionStr: String
 }

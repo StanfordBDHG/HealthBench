@@ -1,8 +1,9 @@
 //
-//  HealthBenchApp.swift
-//  HealthBench
+// This source file is part of the Stanford Biodesign Digital Health HealthBench project
 //
-//  Created by Leon Nissen on 1/22/25.
+// SPDX-FileCopyrightText: 2025 Stanford University and the project authors (see CONTRIBUTORS.md)
+//
+// SPDX-License-Identifier: MIT
 //
 
 import SwiftUI

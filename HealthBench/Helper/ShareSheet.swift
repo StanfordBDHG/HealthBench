@@ -1,8 +1,9 @@
 //
-//  ShareSheet.swift
-//  HealthyLLM
+// This source file is part of the Stanford Biodesign Digital Health HealthBench project
 //
-//  Created by Leon Nissen on 1/8/25.
+// SPDX-FileCopyrightText: 2025 Stanford University and the project authors (see CONTRIBUTORS.md)
+//
+// SPDX-License-Identifier: MIT
 //
 
 import SwiftUI
@@ -12,8 +13,8 @@ import UIKit
 struct ShareSheet: UIViewControllerRepresentable {
     let sharedURL: URL
     
+    
     func makeUIViewController(context: Context) -> some UIActivityViewController {
-        
         let controller = UIActivityViewController(
             activityItems: [sharedURL],
             applicationActivities: nil

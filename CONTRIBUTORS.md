@@ -1,14 +1,13 @@
+
 <!--
+This source file is part of the Stanford Biodesign Digital Health HealthBench project
 
-This source file is part of the StanfordBDHG Template Application project
-
-SPDX-FileCopyrightText: 2023 Stanford University
+SPDX-FileCopyrightText: 2025 Stanford University and the project authors (see CONTRIBUTORS.md)
 
 SPDX-License-Identifier: MIT
-
 -->
 
-Template Application Contributors
+HealthBench Application Contributors
 =================================
 
 * [Paul Schmiedmayer](https://github.com/PSchmiedmayer)

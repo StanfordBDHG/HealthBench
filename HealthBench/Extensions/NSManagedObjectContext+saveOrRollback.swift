@@ -1,8 +1,9 @@
 //
-//  NSManagedObjectContext+.swift
-//  ICBTrack
+// This source file is part of the Stanford Biodesign Digital Health HealthBench project
 //
-//  Created by Leon Nissen on 1/21/25.
+// SPDX-FileCopyrightText: 2025 Stanford University and the project authors (see CONTRIBUTORS.md)
+//
+// SPDX-License-Identifier: MIT
 //
 
 import CoreData
@@ -14,7 +15,8 @@ extension NSManagedObjectContext {
      
      - returns: true if saved
      */
-    @discardableResult func saveOrRollback() -> Bool {
+    @discardableResult
+    func saveOrRollback() -> Bool {
         do {
             try save()
             return true

@@ -1,64 +1,67 @@
 //
-//  PerformaceProcessor.swift
-//  HealthBench
+// This source file is part of the Stanford Biodesign Digital Health HealthBench project
 //
-//  Created by Leon Nissen on 1/23/25.
+// SPDX-FileCopyrightText: 2025 Stanford University and the project authors (see CONTRIBUTORS.md)
+//
+// SPDX-License-Identifier: MIT
 //
 
 import Foundation
-import SwiftUI
 import NotificationCenter
+import SwiftUI
 
 
 class PerformanceProcessor {
     static let shared = PerformanceProcessor()
-    private let saveCount = Int(StorageKeys.performanceSaveInterval / StorageKeys.performanceLogInterval)
     
-    private var timer: Timer?
-    private var log: [PerformaceLog] = []
-    
-    
-    
-    
-    func start() {
-        timer = .scheduledTimer(withTimeInterval: StorageKeys.performanceLogInterval, repeats: true, block: log(_:))
-        UIDevice.current.isBatteryMonitoringEnabled = true
-    }
-    
-    func stop() {
-        timer?.invalidate()
-        timer = nil
-        UIDevice.current.isBatteryMonitoringEnabled = false
-    }
     
     static var systemMetadata: Metadata {
         Metadata(
             device: deviceIdentifier,
-            os: UIDevice.current.systemVersion,
+            operatingSystem: UIDevice.current.systemVersion,
             totalStorage: totalDiskSpace,
             freeStorage: freeDiskSpace,
             totalMemory: String(ProcessInfo.processInfo.physicalMemory)
         )
     }
     
-    private func log(_ timer: Timer) {
-        log.append(
-            .init(
-                timestamp: Date().timeIntervalSince1970,
-                cpu: cpuUsage,
-                memory: memoryUsage,
-                thermalState: thermalState,
-                batteryLevel: Double(UIDevice.current.batteryLevel),
-                batteryState: batteryState
-            )
-        )
-        
-        if log.count >= saveCount {
-            let tmp = log
-            log.removeAll(keepingCapacity: true)
-            PersistenceController.shared.savePerformace(tmp)
+    private static var deviceIdentifier: String {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        let machineMirror = Mirror(reflecting: systemInfo.machine)
+        let identifier = machineMirror.children.reduce(into: "") { identifier, element in
+            guard let value = element.value as? Int8, value != 0 else {
+                return
+            }
+            identifier += String(UnicodeScalar(UInt8(value)))
+        }
+        return identifier
+    }
+    
+    private static var totalDiskSpace: String {
+        guard let systemAttributes = try? FileManager.default.attributesOfFileSystem(forPath: NSHomeDirectory() as String),
+              // swiftlint:disable:next legacy_objc_type - Need to use an NSNumber here; system API.
+              let space = (systemAttributes[FileAttributeKey.systemSize] as? NSNumber)?.int64Value else {
+            return String(0)
+        }
+        return String(space)
+    }
+    
+    private static var freeDiskSpace: String {
+        if let space = try? URL(fileURLWithPath: NSHomeDirectory() as String)
+            .resourceValues(forKeys: [URLResourceKey.volumeAvailableCapacityForImportantUsageKey])
+            .volumeAvailableCapacityForImportantUsage {
+            return String(space)
+        } else {
+            return String(0)
         }
     }
+    
+    
+    private let saveCount = Int(StorageKeys.performanceSaveInterval / StorageKeys.performanceLogInterval)
+    private var timer: Timer?
+    private var log: [PerformaceLog] = []
+    
     
     private var thermalState: String {
         switch ProcessInfo.processInfo.thermalState {
@@ -95,7 +98,7 @@ class PerformanceProcessor {
         var threadsList: thread_act_array_t?
         var threadsCount = mach_msg_type_number_t(0)
         let threadsResult = withUnsafeMutablePointer(to: &threadsList) {
-            return $0.withMemoryRebound(to: thread_act_array_t?.self, capacity: 1) {
+            $0.withMemoryRebound(to: thread_act_array_t?.self, capacity: 1) {
                 task_threads(mach_task_self_, $0, &threadsCount)
             }
         }
@@ -142,32 +145,34 @@ class PerformanceProcessor {
         return String(used)
     }
     
-    private static var deviceIdentifier: String {
-        var systemInfo = utsname()
-        uname(&systemInfo)
-        let machineMirror = Mirror(reflecting: systemInfo.machine)
-        let identifier = machineMirror.children.reduce("") { identifier, element in
-            guard let value = element.value as? Int8, value != 0 else { return identifier }
-            return identifier + String(UnicodeScalar(UInt8(value)))
-        }
-        return identifier
+    
+    func start() {
+        timer = .scheduledTimer(withTimeInterval: StorageKeys.performanceLogInterval, repeats: true, block: log(_:))
+        UIDevice.current.isBatteryMonitoringEnabled = true
     }
     
-    private static var totalDiskSpace: String {
-        guard let systemAttributes = try? FileManager.default.attributesOfFileSystem(forPath: NSHomeDirectory() as String),
-              let space = (systemAttributes[FileAttributeKey.systemSize] as? NSNumber)?.int64Value else {
-            return String(0)
-        }
-        return String(space)
+    func stop() {
+        timer?.invalidate()
+        timer = nil
+        UIDevice.current.isBatteryMonitoringEnabled = false
     }
     
-    private static var freeDiskSpace: String {
-        if let space = try? URL(fileURLWithPath: NSHomeDirectory() as String)
-            .resourceValues(forKeys: [URLResourceKey.volumeAvailableCapacityForImportantUsageKey])
-            .volumeAvailableCapacityForImportantUsage {
-            return String(space)
-        } else {
-            return String(0)
+    private func log(_ timer: Timer) {
+        log.append(
+            .init(
+                timestamp: Date().timeIntervalSince1970,
+                cpu: cpuUsage,
+                memory: memoryUsage,
+                thermalState: thermalState,
+                batteryLevel: Double(UIDevice.current.batteryLevel),
+                batteryState: batteryState
+            )
+        )
+        
+        if log.count >= saveCount {
+            let tmp = log
+            log.removeAll(keepingCapacity: true)
+            PersistenceController.shared.savePerformace(tmp)
         }
     }
 }

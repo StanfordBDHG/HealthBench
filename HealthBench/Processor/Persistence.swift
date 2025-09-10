@@ -1,13 +1,15 @@
 //
-//  Persistence.swift
-//  HealthBench
+// This source file is part of the Stanford Biodesign Digital Health HealthBench project
 //
-//  Created by Leon Nissen on 1/22/25.
+// SPDX-FileCopyrightText: 2025 Stanford University and the project authors (see CONTRIBUTORS.md)
+//
+// SPDX-License-Identifier: MIT
 //
 
-import Foundation
 import CoreData
+import Foundation
 import os
+
 
 struct PersistenceController {
     static let shared = PersistenceController()
@@ -34,6 +36,7 @@ struct PersistenceController {
     }
     
     
+    // swiftlint:disable:next function_parameter_count - The number of parameters is representative of the Answer type which we generate here.
     func saveAnswer(
         model: String,
         caseID: String,
@@ -143,7 +146,7 @@ struct PersistenceController {
         writeToFile(name: "metadata.json", data: data, directory: folderURL)
     }
     
-    private func createFolder(in directory: URL? = nil, name: String, deleteExsisting: Bool = false) -> URL? {
+    private func createFolder(name: String, in directory: URL? = nil, deleteExsisting: Bool = false) -> URL? {
         var path = directory ?? FileManager.default.temporaryDirectory
         path = path.appending(component: name, directoryHint: .isDirectory)
         
@@ -179,5 +182,3 @@ struct PersistenceController {
         }
     }
 }
-
-

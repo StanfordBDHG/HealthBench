@@ -23,53 +23,13 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Build and test
 
-### ios test_iphone
+### ios screenshots
 
 ```sh
-[bundle exec] fastlane ios test_iphone
+[bundle exec] fastlane ios screenshots
 ```
 
-Build and test for iPhone
-
-### ios test_ipad
-
-```sh
-[bundle exec] fastlane ios test_ipad
-```
-
-Build and test for iPad
-
-### ios test_apple_watch
-
-```sh
-[bundle exec] fastlane ios test_apple_watch
-```
-
-Build and test for Apple Watch
-
-### ios test_apple_tv
-
-```sh
-[bundle exec] fastlane ios test_apple_tv
-```
-
-Build and test for Apple TV
-
-### ios test_vision_pro
-
-```sh
-[bundle exec] fastlane ios test_vision_pro
-```
-
-Build and test for Vision Pro
-
-### ios test_macos
-
-```sh
-[bundle exec] fastlane ios test_macos
-```
-
-Build and test for macOS
+Screenshots
 
 ### ios codeql
 
@@ -87,6 +47,14 @@ CodeQL
 
 Build app
 
+### ios archive
+
+```sh
+[bundle exec] fastlane ios archive
+```
+
+Archive app
+
 ### ios signin
 
 ```sh
@@ -95,13 +63,13 @@ Build app
 
 Sign in to the App Store Connect API
 
-### ios beta
+### ios deploy
 
 ```sh
-[bundle exec] fastlane ios beta
+[bundle exec] fastlane ios deploy
 ```
 
-Publish a beta release to internal TestFlight testers
+Publish a release to TestFlight or the App Store depending on the environment
 
 ----
 

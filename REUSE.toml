@@ -1,0 +1,9 @@
+version = 1
+
+[[annotations]]
+path = [
+    "HealthBench.xcodeproj/**",
+    "HealthBench/Supporting Files/**",
+]
+SPDX-FileCopyrightText = "2025 Stanford University and the project authors (see CONTRIBUTORS.md)"
+SPDX-License-Identifier = "MIT"
