@@ -10,4 +10,5 @@ SPDX-License-Identifier: MIT
 HealthBench Application Contributors
 =================================
 
+* [Leon Nissen](https://github.com/LeonNissen)
 * [Paul Schmiedmayer](https://github.com/PSchmiedmayer)
