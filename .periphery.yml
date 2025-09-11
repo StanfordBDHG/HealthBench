@@ -9,7 +9,3 @@
 project: HealthBench.xcodeproj
 schemes:
 - HealthBench
-targets:
-- HealthBench
-- HealthBenchTests
-- HealthBenchUITests

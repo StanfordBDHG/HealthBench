@@ -223,6 +223,7 @@ class BenchmarkProcessor: DefaultInitializable, Module, EnvironmentAccessible {
     
     @MainActor
     func stop() {
+        downloader.cancel()
         benchmarkTask?.cancel()
         session?.cancel()
         PerformanceProcessor.shared.stop()

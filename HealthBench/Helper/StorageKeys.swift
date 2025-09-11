@@ -13,7 +13,6 @@ enum StorageKeys {
     static let deleteModelWhenFinish = "deleteModelWhenFinish"
     static let finishedModels = "finishedModels"
     
-    static let modelDirectory = "huggingface/models/mlx-community"
     static let modelFiles = ["*.safetensors", "config.json"]
     
     static let selectedModels = "selectedModels"

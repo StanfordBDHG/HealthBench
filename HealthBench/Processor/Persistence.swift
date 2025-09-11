@@ -75,7 +75,10 @@ struct PersistenceController {
     }
     
     func savePerformace(_ data: [PerformaceLog]) {
-        let csv = data.map(\.csv).joined(by: "\n")
+        let csv = """
+            \(PerformaceLog.header)
+            \(data.map(\.csv).joined(by: "\n"))
+            """
         
         let performace = Performance(context: backgroundContext)
         performace.data = String(csv)

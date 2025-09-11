@@ -9,6 +9,7 @@
 import Foundation
 
 
+// periphery:ignore - All the properties are encoded due to the codable conformance.
 struct Metadata: Codable {
     let device: String
     let operatingSystem: String

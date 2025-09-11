@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+// periphery:ignore - All the properties are encoded due to the codable conformance.
 struct Case: Codable {
     enum CodingKeys: String, CodingKey {
         case id = "case_id"

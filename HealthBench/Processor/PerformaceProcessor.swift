@@ -157,7 +157,7 @@ class PerformanceProcessor {
         UIDevice.current.isBatteryMonitoringEnabled = false
     }
     
-    private func log(_ timer: Timer) {
+    private func log(_: Timer) {
         log.append(
             .init(
                 timestamp: Date().timeIntervalSince1970,
