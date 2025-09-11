@@ -1,61 +1,39 @@
 #
-# This source file is part of the StanfordBDHG Template Application project
+# This source file is part of the Stanford Biodesign Digital Health HealthBench project
 #
-# SPDX-FileCopyrightText: 2023 Stanford University
+# SPDX-FileCopyrightText: 2025 Stanford University and the project authors (see CONTRIBUTORS.md)
 #
 # SPDX-License-Identifier: MIT
 #
 
 name: Build and Test
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 on:
   pull_request:
   workflow_dispatch:
   workflow_call:
 
+concurrency:
+  group: Build-and-Test-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  reuse_action:
-    name: REUSE Compliance Check
-    uses: StanfordBDHG/.github/.github/workflows/reuse.yml@v2
-  swiftlint:
-    name: SwiftLint
-    uses: StanfordBDHG/.github/.github/workflows/swiftlint.yml@v2
-  periphery:
-    name: Periphery
-    uses: StanfordBDHG/.github/.github/workflows/periphery.yml@v2
-    permissions:
-      contents: read
-  codeql:
-    name: CodeQL
-    uses: StanfordBDHG/.github/.github/workflows/xcodebuild-or-fastlane.yml@v2
-    with:
-      codeql: true
-      fastlanelane: codeql
-    permissions:
-      security-events: write
-      actions: read
   buildandtest:
     name: Build and Test
     uses: StanfordBDHG/.github/.github/workflows/xcodebuild-or-fastlane.yml@v2
-    strategy:
-      fail-fast: false
-      matrix:
-        platform: [iphone, ipad, apple_watch, apple_tv, vision_pro]
+    permissions:
+      contents: read
     with:
-      # We use the self-hosted runners as the main GitHub Action runners do not have the necessary performance.
-      # Remove the `runsonlabels: '["macOS", "self-hosted"]'` lines if you do not administer your own GitHub Runners.
+      artifactname: HealthBench.xcresult
       runsonlabels: '["macOS", "self-hosted"]'
-      fastlanelane: test_${{ matrix.platform }}
-      artifactname: ${{ matrix.platform }}.xcresult
+      fastlanelane: test
   uploadcoveragereport:
     name: Upload Coverage Report
-    needs: [buildandtest]
+    needs: buildandtest
     uses: StanfordBDHG/.github/.github/workflows/create-and-upload-coverage-report.yml@v2
+    permissions:
+      contents: read
     with:
-      coveragereports: iphone.xcresult ipad.xcresult apple_watch.xcresult apple_tv.xcresult vision_pro.xcresult
+      coveragereports: HealthBench.xcresult
     secrets:
       token: ${{ secrets.CODECOV_TOKEN }}

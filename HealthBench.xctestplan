@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "51A7044A-907B-4496-8EAC-068BC07FB46C",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:HealthBench.xcodeproj",
+      "identifier" : "440DD8722D419D3A00DE9D02",
+      "name" : "HealthBench"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:HealthBench.xcodeproj",
+        "identifier" : "659FC2AB2E722F3800E1F385",
+        "name" : "HealthBenchUITests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:HealthBench.xcodeproj",
+        "identifier" : "659FC2BA2E722F6200E1F385",
+        "name" : "HealthBenchTests"
+      }
+    }
+  ],
+  "version" : 1
+}
