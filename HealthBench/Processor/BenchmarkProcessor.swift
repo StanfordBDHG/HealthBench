@@ -11,6 +11,7 @@ import Spezi
 import SpeziLLM
 import SpeziLLMLocal
 import SwiftUI
+import MLXLMCommon
 
 
 @Observable
@@ -184,10 +185,10 @@ class BenchmarkProcessor: DefaultInitializable, Module, EnvironmentAccessible {
             ended: ended,
             inputTime: generationResponse?.promptTime ?? -1,
             inputTokenPerSec: generationResponse?.promptTokensPerSecond ?? -1,
-            inputTokenCount: Double(generationResponse?.inputTokens.count ?? -1),
+            inputTokenCount: Double(generationResponse?.promptTokenCount ?? -1),
             outputTime: generationResponse?.generateTime ?? -1,
             outputTokenPerSec: generationResponse?.tokensPerSecond ?? -1,
-            outputTokenCount: Double(generationResponse?.outputTokens.count ?? -1)
+            outputTokenCount: Double(generationResponse?.generationTokenCount ?? -1)
         )
         MLX.GPU.clearCache()
     }
@@ -257,7 +258,7 @@ class BenchmarkProcessor: DefaultInitializable, Module, EnvironmentAccessible {
     }
     
     
-    private func executeLLM(currentCase: Case, currentQuestion: Question) async throws -> LLMLocalGenerationResult? {
+    private func executeLLM(currentCase: Case, currentQuestion: Question) async throws -> GenerateResult? {
         guard let session else {
             return nil
         }
@@ -267,15 +268,8 @@ class BenchmarkProcessor: DefaultInitializable, Module, EnvironmentAccessible {
             session.customContext = context
         }
         
-        async let generate: AsyncThrowingStream<LLMLocalGenerateState, Error> = session.generate()
-        for try await state in try await generate {
-            guard case .final(let result) = state else {
-                continue
-            }
-            return result
-        }
-        
-        return nil
+        let result = try await session.generateForBenchmark()
+        return result
     }
     
     func offloadLLM() async {
